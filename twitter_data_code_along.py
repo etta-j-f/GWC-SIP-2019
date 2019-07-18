@@ -59,7 +59,7 @@ plt.savefig("Etta'stwitterchart.png")
 # print(type(tweetData[0].keys()))
 
 # print(tweetData[0]["favorite_count"])
-#
+
 # favoriteCount = 0
 # totalfavoriteCount = 0
 #
