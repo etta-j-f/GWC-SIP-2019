@@ -8,7 +8,7 @@ Please explain the comments to students as you code.
 # students learned for their Survey Project!
 import json
 from textblob import TextBlob
-import matplotlib.pyplot as pit
+import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 
 # Next we want to open the JSON file. We tag this file as
@@ -24,31 +24,72 @@ tweets = []
 for i in range(len(tweetData)):
 	onetweet = tweetData[i]["text"]
 	tweets.append(onetweet)
+
+	tweetString = " "
+	for tweet in tweets:
+		tweet = tweet + " "
+		tweetString += tweet
 # print(len(tweets))
 
 # print(tb.polarity)
 
-# polaritylist = []
-# for i in tweets:
-# 	polaritylist.append(TextBlob(i).polarity)
+polaritylist = []
+for i in tweets:
+	polaritylist.append(TextBlob(i).polarity)
 # print(polaritylist)
 
-tweetString = " "
-for tweet in tweets:
-	tweet = tweet + " "
-	tweetString += tweet
-print(tweetString)
+def counterLetter(string, letter):
+	counter = 0
+	for let in string :
+		if let.lower() == letter:
+			counter += 1
+		else:
+			counter += 0
+	return counter
+
+
+
+counterLetter(tweetString, "a")
+alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+letters = sorted(alpha)
+
+occurences = []
+for letter in letters:
+	occurences.append(counterLetter(tweetString, letter))
+
+
+def wordCount(stringOfTweet, string1):
+	counter = 0
+	string1 = string1.lower()
+	wordList = stringOfTweet.split(' ')
+	for item in wordList:
+		if item == string1:
+			counter += 1
+	return counter
+# print(tweetString)
 
 # print(text)
 # for item in tweet:
 # 	long_string += item + " "
 
-wordcloud = WordCloud().generate(tweetString)
+#
+# wordcloud = WordCloud(height = 1000, width = 1000).generate(tweetString)
+# plt.figure(figsize = (10, 10), facecolor = None)
+# plt.imshow(wordcloud, interpolation='bilinear')
+# plt.axis("off")
+# plt.show()
+# plt.savefig("Etta'stwitterchart.png")
 
-plt.imshow(wordcloud, interpolation='bilinear')
-plt.axis("off")
+#histogram code
+# print(polaritylist)
+# print(min(polaritylist), max(polaritylist))
+
+plt.xlabel("tweets")
+plt.ylabel("occurences")
+plt.hist(occurences)
+plt.axis([min(occurences), max(occurences), 0, 10])
 plt.show()
-plt.savefig("Etta'stwitterchart.png")
+plt.savefig("Ettaschart.png")
 
 
 
@@ -59,7 +100,7 @@ plt.savefig("Etta'stwitterchart.png")
 # print(type(tweetData[0].keys()))
 
 # print(tweetData[0]["favorite_count"])
-
+#
 # favoriteCount = 0
 # totalfavoriteCount = 0
 #
@@ -77,33 +118,3 @@ plt.savefig("Etta'stwitterchart.png")
 			# nums[index] += numOfLetter(text, alpha[index])
 # We can close the file now that we have locally stored the data.
 # tweetFile.close()
-#
-# # We then print the data of ONE tweet:
-# # the [0] denotes the *first* tweet object.
-# # We access parts of the tweet using ["NameOfPart"].
-# print("Tweet id: ", tweetData[0]["id"])
-#
-# # First ask students how they might print the text object:
-# # Then show them the following code
-# print("Tweet text: ", tweetData[0]["text"])
-#
-#
-# # First ask students how might they use loops
-# # to print the ["text"] of all the tweets:
-#
-# # Show them the following two options:
-#
-# # Explain how here, we're using index and
-# # counting the number of tweets in the tweetData
-# # using the python len() function.
-# for idx in range(len(tweetData)):
-# 	print("Tweet text: " + tweetData[idx]["text"])
-#
-# # Explain here how Python lets you get objects
-# # directly without having to use an index.
-# for tweet in tweetData:
-# 	print("Tweet text: " + tweet["text"])
-#
-# # Encourage students to think about how there are
-# # often multiple solutions for each problem, and
-# # how each solution might have strenghts and drawbacks.
