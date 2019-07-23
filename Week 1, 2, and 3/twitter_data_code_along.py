@@ -49,15 +49,15 @@ def counterLetter(string, letter):
 
 
 
-counterLetter(tweetString, "a")
-alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-letters = sorted(alpha)
+# counterLetter(tweetString, "a")
+# alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+# letters = sorted(alpha)
+#
+# occurences = []
+# for letter in letters:
+# 	occurences.append(counterLetter(tweetString, letter))
 
-occurences = []
-for letter in letters:
-	occurences.append(counterLetter(tweetString, letter))
-
-
+for i in range(0,len(tweetData)): tweets.append(tweetData[i]['text'])
 def wordCount(stringOfTweet, string1):
 	counter = 0
 	string1 = string1.lower()
@@ -66,6 +66,19 @@ def wordCount(stringOfTweet, string1):
 		if item == string1:
 			counter += 1
 	return counter
+
+wordCountList = []
+for item in tweets:
+	wordoccurence = wordCount(item, "the")
+	wordCountList.append(wordoccurence)
+
+print(wordCountList)
+n, bins, patches = plt.hist(wordCountList, 50)
+plt.axis([min(wordCountList), max(wordCountList), 0, 50])
+plt.grid(True)
+plt.show()
+# print(wordCountList)
+
 # print(tweetString)
 
 # print(text)
@@ -84,12 +97,12 @@ def wordCount(stringOfTweet, string1):
 # print(polaritylist)
 # print(min(polaritylist), max(polaritylist))
 
-plt.xlabel("tweets")
-plt.ylabel("occurences")
-plt.hist(occurences)
-plt.axis([min(occurences), max(occurences), 0, 10])
-plt.show()
-plt.savefig("Ettaschart.png")
+# plt.xlabel("tweets")
+# plt.ylabel("occurences")
+# plt.hist(occurences)
+# plt.axis([min(occurences), max(occurences), 0, 10])
+# plt.show()
+# plt.savefig("Ettaschart.png")
 
 
 
