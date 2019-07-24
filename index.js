@@ -33,3 +33,8 @@ function getTemp2(type){
 }
 console.log(getTemp2("f"))
 console.log(getTemp2("c"))
+
+document.getElementById("adjectives").addEventListener("mouseover" ,
+function (){
+document.getElementById("adjectives").style.color = "red"
+}

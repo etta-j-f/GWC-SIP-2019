@@ -41,7 +41,7 @@ function colorfulBackground(){
 
 }
 
-document.getElementById("anotherid").addEventListener("click" ,
+document.getElementById("anotherid").addEventListener("mouseover" ,
 function (){
 document.getElementById("anotherid").style.color = "red"
 }
