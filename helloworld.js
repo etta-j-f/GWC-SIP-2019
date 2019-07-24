@@ -19,6 +19,23 @@ function changeAdj(){
   }
 }
 
+var foz = document.getElementById("the name")
+function changeFontColor(){
+  foz.setAttribute("style", "color:blue")
+}
+var fonts = ["'Darker Grotesque', sans-serif;" , "'Hanalei', cursive;",
+ "'Geostar', cursive;" ,"'Roboto Mono', monospace"];
+
+var poz = 0;
+
+function fontChange(){
+  foz.setAttribute("style" , `font-family: ${fonts[poz]}`)
+  poz++;
+  if(poz>=fonts.length){
+    poz=0;
+  }
+}
+
 Math.random()
 var x = document.getElementsByTagName("body")[0]
 
